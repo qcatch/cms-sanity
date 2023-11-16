@@ -16,8 +16,9 @@ import home from "./sanity/schemas/singletons/home";
 import page from "./sanity/schemas/documents/page";
 import settings from "./sanity/schemas/singletons/settings";
 import textImage from "./sanity/schemas/objects/textImage";
-import { apiVersion, dataset, projectId } from "./sanity/env";
+
 import homeHero from "./sanity/schemas/objects/homeHero";
+import { apiVersion, dataset, projectId } from "./sanity/lib/sanity.api";
 
 export default defineConfig({
   basePath: "/studio",

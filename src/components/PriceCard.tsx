@@ -1,10 +1,11 @@
 import React from "react";
 
-interface PriceCardProps {
+export interface PriceCardProps {
+  _key?: string;
   title: string;
   price: string;
-  period: string;
-  features: string[];
+  term: string;
+  options: string[];
 }
 
 const TickIcon = () => (
@@ -27,8 +28,8 @@ const TickIcon = () => (
 const PriceCard: React.FC<PriceCardProps> = ({
   title,
   price,
-  period,
-  features,
+  term,
+  options,
 }) => {
   return (
     <div className="block h-full rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
@@ -37,9 +38,9 @@ const PriceCard: React.FC<PriceCardProps> = ({
           <strong>{title}</strong>
         </p>
         <h3 className="mb-6 text-3xl">
-          <strong>{price}</strong>
+          <strong>${price}</strong>
           <small className="text-base text-neutral-500 dark:text-neutral-300">
-            {period}
+            /{term}
           </small>
         </h3>
         <button
@@ -51,12 +52,13 @@ const PriceCard: React.FC<PriceCardProps> = ({
       </div>
       <div className="p-6">
         <ol className="list-inside">
-          {features.map((feature, index) => (
-            <li key={index} className="mb-4 flex">
-              <TickIcon />
-              {feature}
-            </li>
-          ))}
+          {options &&
+            options.map((option, index) => (
+              <li key={index} className="mb-4 flex">
+                <TickIcon />
+                {option}
+              </li>
+            ))}
         </ol>
       </div>
     </div>
