@@ -1,12 +1,13 @@
 import { HomePagePayload } from "@/models/sanity.model";
 import HomeHero from "@/components/HomeHero";
-import { FC } from "react";
+import { EncodeDataAttributeCallback } from "@sanity/react-loader";
 
 export interface HomePageProps {
   data: HomePagePayload | null;
+  encodeDataAttribute?: EncodeDataAttributeCallback;
 }
 
-const HomePage: FC<HomePageProps> = ({ data }) => {
+export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   const body = data?.body || [];
 
   if (!body.length) {
@@ -25,6 +26,6 @@ const HomePage: FC<HomePageProps> = ({ data }) => {
       ))}
     </div>
   );
-};
+}
 
 export default HomePage;

@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { MenuItem, SettingsPayload } from "@/models/sanity.model";
-import { resolveHref } from "../../../../sanity/lib/sanity.links";
 
-interface HeaderProps {
+import { resolveHref } from "@/sanity/lib/utils";
+import { MenuItem, SettingsPayload } from "@/models/sanity.model";
+
+interface NavbarProps {
   data: SettingsPayload;
 }
-
-export default function HeaderLayout(props: HeaderProps) {
+export default function Navbar(props: NavbarProps) {
   const { data } = props;
   const menuItems = data?.menuItems || ([] as MenuItem[]);
   return (
@@ -24,7 +24,11 @@ export default function HeaderLayout(props: HeaderProps) {
                   return (
                     <li className="mb-4 lg:mb-0 lg:pr-2" key={key}>
                       <Link
-                        className={`block transition duration-150 ease-in-out hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:hover:text-white dark:focus:text-white lg:p-2 [&.active]:text-black/90`}
+                        className={`block transition duration-150 ease-in-out hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:hover:text-white dark:focus:text-white lg:p-2 [&.active]:text-black/90 ${
+                          menuItem?._type === "home"
+                            ? "font-extrabold text-black"
+                            : "text-gray-600"
+                        }`}
                         href={href}
                       >
                         {menuItem.title}

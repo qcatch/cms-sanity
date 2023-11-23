@@ -1,8 +1,9 @@
 import type { PortableTextBlock } from "@portabletext/types";
 
 import React from "react";
-import { PortableText } from "@portabletext/react";
 import { SettingsPayload } from "@/models/sanity.model";
+import { CustomPortableText } from "@/components/CustomPortableText";
+
 const LinkItem = ({
   href,
   children,
@@ -107,7 +108,12 @@ export default function Footer(props: FooterProps) {
       </div>
 
       <div className="w-full bg-neutral-200 p-4 text-center text-neutral-700 dark:bg-neutral-700 dark:text-neutral-200">
-        <PortableText value={footer} />
+        {footer && (
+          <CustomPortableText
+            paragraphClasses="text-md md:text-xl"
+            value={footer}
+          />
+        )}
       </div>
     </footer>
   );

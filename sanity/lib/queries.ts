@@ -8,10 +8,6 @@ export const homePageQuery = groq`
   }
 `;
 
-export const homePageTitleQuery = groq`
-  *[_type == "home"][0].title
-`;
-
 export const pagesBySlugQuery = groq`
   *[_type == "page" && slug.current == $slug][0] {
     _id,
@@ -19,10 +15,6 @@ export const pagesBySlugQuery = groq`
     title,
     "slug": slug.current,
   }
-`;
-
-export const pagePaths = groq`
-  *[_type == "page" && slug.current != null].slug.current
 `;
 
 export const settingsQuery = groq`
@@ -33,5 +25,6 @@ export const settingsQuery = groq`
       "slug": slug.current,
       title
     },
+    ogImage,
   }
 `;

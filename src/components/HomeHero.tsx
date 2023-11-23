@@ -1,7 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import { HomeHeroBlock } from "@/models/sanity.model";
-import { urlForImage } from "../../sanity/lib/sanity.image";
+import { urlForImage } from "@/sanity/lib/utils";
+import ImageBox from "@/components/ImageBox";
 
 const HomeHero: React.FC<HomeHeroBlock> = ({ title, buttons, heroImage }) => {
   const imageUrl = heroImage && urlForImage(heroImage)?.fit("crop").url();
@@ -34,11 +35,18 @@ const HomeHero: React.FC<HomeHeroBlock> = ({ title, buttons, heroImage }) => {
             </div>
             <div className="mb-12 lg:mb-0">
               {imageUrl && (
-                <img
-                  src={imageUrl}
-                  className="w-full rounded-lg shadow-lg dark:shadow-black/20"
-                  alt=""
-                />
+                <div
+                  className="relative overflow-hidden w-full rounded-lg shadow-lg dark:shadow-black/20"
+                  style={{ width: "600px", height: "600px" }}
+                >
+                  <ImageBox
+                    image={heroImage}
+                    alt={title || "Cover image"}
+                    size="10vw"
+                    width={600}
+                    height={600}
+                  />
+                </div>
               )}
             </div>
           </div>

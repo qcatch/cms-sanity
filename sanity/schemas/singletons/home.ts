@@ -24,15 +24,4 @@ export default defineType({
       validation: (rule) => rule.min(1).required(),
     }),
   ],
-  preview: {
-    select: {
-      title: "title",
-    },
-    prepare({ title }) {
-      return {
-        subtitle: "Home",
-        title,
-      };
-    },
-  },
 });

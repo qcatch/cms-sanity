@@ -18,7 +18,16 @@ import settings from "./sanity/schemas/singletons/settings";
 import textImage from "./sanity/schemas/objects/textImage";
 
 import homeHero from "./sanity/schemas/objects/homeHero";
-import { apiVersion, dataset, projectId } from "./sanity/lib/sanity.api";
+
+import { structure } from "@/sanity/plugins/structure";
+import { initialValueTemplates } from "@/sanity/plugins/initialValueTemplates";
+import { presentationTool } from "@sanity/presentation";
+import { debugSecrets } from "@sanity/preview-url-secret/sanity-plugin-debug-secrets";
+import { locate } from "@/sanity/plugins/locate";
+import { apiVersion, dataset, projectId } from "@/sanity/lib/api";
+
+const SANITY_STUDIO_PREVIEW_URL =
+  process.env.NEXT_PUBLIC_SANITY_STUDIO_PREVIEW_URL || "http://localhost:3000";
 
 export default defineConfig({
   basePath: "/studio",
@@ -42,11 +51,26 @@ export default defineConfig({
       cardPriceBlock,
       homeHero,
     ],
+    templates: (prev) => initialValueTemplates(prev),
   },
   plugins: [
-    deskTool(),
+    deskTool({ structure }),
     // Vision is a tool that lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
+    presentationTool({
+      locate,
+      previewUrl: {
+        origin:
+          typeof location === "undefined"
+            ? "http://localhost:3000"
+            : location.origin,
+        draftMode: {
+          enable: "/api/draft",
+        },
+      },
+    }),
     visionTool({ defaultApiVersion: apiVersion }),
+    // Makes the url secrets visible in the Sanity Studio like any other documents defined in your schema
+    debugSecrets(),
   ],
 });

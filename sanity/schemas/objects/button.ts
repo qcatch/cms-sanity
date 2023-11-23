@@ -11,10 +11,9 @@ export default defineField({
       title: "Button Label",
     }),
     defineField({
-      type: "reference",
+      type: "string",
       name: "link",
       title: "Link to",
-      to: [{ type: "page" }],
     }),
   ],
 });

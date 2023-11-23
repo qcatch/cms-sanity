@@ -2,7 +2,7 @@
 
 import { useSettings } from "@/sanity/loader/useQuery";
 
-import FooterLayout from "./FooterLayout";
+import NavbarLayout from "./NavbarLayout";
 
 type Props = {
   initial: Parameters<typeof useSettings>[0];
@@ -11,5 +11,5 @@ type Props = {
 export default function NavbarPreview(props: Props) {
   const { data } = useSettings(props.initial);
 
-  return <FooterLayout data={data!} />;
+  return <NavbarLayout data={data!} />;
 }
