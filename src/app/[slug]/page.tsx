@@ -9,6 +9,15 @@ import PagePreview from "@/components/documents/PagePreview";
 import { Suspense } from "react";
 import { Header } from "@/components/global/Header";
 import { Footer } from "@/components/global/Footer";
+import { metadata } from "@/app/layout";
+
+export async function generateMetadata({ params }: AppRouteProps) {
+  const data = await getPageBySlug(params.slug);
+
+  return {
+    title: `${data?.title}: ${metadata.title}`,
+  };
+}
 
 export async function generateStaticParams() {
   const slugs = await getPagesPaths();
