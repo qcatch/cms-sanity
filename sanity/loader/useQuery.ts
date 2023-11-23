@@ -5,11 +5,11 @@ import {
   type UseQueryOptions,
 } from "@sanity/react-loader/rsc";
 
-import {queryStore} from "./createQueryStore";
+import { queryStore } from "./createQueryStore";
 
-import {SettingsPayload} from "@/models/sanity.model";
-import {studioUrl} from "@/sanity/lib/api";
-import {settingsQuery} from "@/sanity/lib/queries";
+import { SettingsPayload } from "@/models/sanity.model";
+import { studioUrl } from "@/sanity/lib/api";
+import { settingsQuery } from "@/sanity/lib/queries";
 
 /**
  * Exports to be used in client-only or components that render both server and client

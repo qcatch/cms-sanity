@@ -1,11 +1,11 @@
 "use client";
 
-import {enableOverlays, HistoryAdapterNavigate} from "@sanity/overlays";
-import {usePathname, useRouter, useSearchParams} from "next/navigation";
-import {useEffect, useRef, useState} from "react";
+import { enableOverlays, HistoryAdapterNavigate } from "@sanity/overlays";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 
-import {useLiveMode} from "./useQuery";
-import {client} from "@/sanity/lib/client";
+import { useLiveMode } from "./useQuery";
+import { client } from "@/sanity/lib/client";
 
 // Always enable stega in Live Mode
 const stegaClient = client.withConfig({ stega: true });

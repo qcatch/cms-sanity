@@ -1,6 +1,10 @@
-import {DefaultDocumentNodeResolver, StructureBuilder, StructureContext,} from "sanity/desk";
-import {Iframe} from "sanity-plugin-iframe-pane";
-import {SanityDocument} from "sanity";
+import {
+  DefaultDocumentNodeResolver,
+  StructureBuilder,
+  StructureContext,
+} from "sanity/desk";
+import { Iframe } from "sanity-plugin-iframe-pane";
+import { SanityDocument } from "sanity";
 
 /*
 list of schema types supporting preview

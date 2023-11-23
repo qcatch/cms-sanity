@@ -1,10 +1,10 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import {QueryResponseInitial} from "@sanity/react-loader/rsc";
-import {HomePagePayload} from "@/models/sanity.model";
-import {useQuery} from "@/sanity/loader/useQuery";
-import {homePageQuery} from "@/sanity/lib/queries";
+import { QueryResponseInitial } from "@sanity/react-loader/rsc";
+import { HomePagePayload } from "@/models/sanity.model";
+import { useQuery } from "@/sanity/loader/useQuery";
+import { homePageQuery } from "@/sanity/lib/queries";
 
 // Re-exported components using next/dynamic ensures they're not bundled
 // and sent to the browser unless actually used, with draftMode().enabled.
