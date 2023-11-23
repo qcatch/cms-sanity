@@ -1,4 +1,4 @@
-import {DefaultDocumentNodeResolver, StructureBuilder, StructureContext} from "sanity/desk";
+import {DefaultDocumentNodeResolver, StructureBuilder, StructureContext,} from "sanity/desk";
 import {Iframe} from "sanity-plugin-iframe-pane";
 import {SanityDocument} from "sanity";
 
