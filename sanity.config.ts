@@ -25,6 +25,7 @@ import { presentationTool } from "@sanity/presentation";
 import { debugSecrets } from "@sanity/preview-url-secret/sanity-plugin-debug-secrets";
 import { locate } from "@/sanity/plugins/locate";
 import { apiVersion, dataset, projectId } from "@/sanity/lib/api";
+import richText from "@/sanity/schemas/objects/richText";
 
 const SANITY_STUDIO_PREVIEW_URL =
   process.env.NEXT_PUBLIC_SANITY_STUDIO_PREVIEW_URL || "http://localhost:3000";
@@ -50,6 +51,7 @@ export default defineConfig({
       cardPrice,
       cardPriceBlock,
       homeHero,
+      richText,
     ],
     templates: (prev) => initialValueTemplates(prev),
   },

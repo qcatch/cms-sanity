@@ -1,6 +1,7 @@
 import { PagePayload } from "@/models/sanity.model";
 import PriceCardBlock from "@/components/PriceCardBlock";
 import FAQBlock from "@/components/FAQBlock";
+import { CustomPortableText } from "@/components/CustomPortableText";
 
 export interface PageProps {
   data: PagePayload | null;
@@ -25,6 +26,9 @@ export function Page({ data }: PageProps) {
             return <FAQBlock key={item._key} {...item} />;
           // case "page-text-image":
           //   return <TextImage image={item.image} children={item.children} />;
+          case "page-rich-text":
+            return <CustomPortableText key={item._key} {...item} />;
+
           default:
             return null;
         }

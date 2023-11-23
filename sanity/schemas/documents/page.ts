@@ -32,6 +32,7 @@ export default defineType({
         defineArrayMember({ name: "page-text-image", type: "textImage" }),
         defineArrayMember({ name: "page-faq-block", type: "faqBlock" }),
         defineArrayMember({ name: "page-card-block", type: "cardPriceBlock" }),
+        defineArrayMember({ name: "page-rich-text", type: "richText" }),
       ],
       validation: (rule) => rule.min(1).required(),
     }),

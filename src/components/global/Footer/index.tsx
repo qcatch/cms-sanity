@@ -10,8 +10,6 @@ const FooterPreview = dynamic(() => import("./FooterPreview"));
 export async function Footer() {
   const initial = await loadSettings();
 
-  console.log("INITIAL", initial);
-
   if (draftMode().isEnabled) {
     return <FooterPreview initial={initial} />;
   }

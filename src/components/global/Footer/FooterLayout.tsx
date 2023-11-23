@@ -54,6 +54,8 @@ export default function Footer(props: FooterProps) {
   const { data } = props;
   const footer = data?.footer || ([] as PortableTextBlock[]);
 
+  // console.log('footer', footer)
+
   const footerLinks = [
     {
       title: "Links",

@@ -24,7 +24,6 @@ export const settingsQuery = groq`
       _type,
       "slug": slug.current,
       title
-    },
-    ogImage,
+    }
   }
 `;
