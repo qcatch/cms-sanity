@@ -34,7 +34,7 @@ const HomeHero: React.FC<HomeHeroBlock> = ({ title, buttons, heroImage }) => {
                 })}
             </div>
             <div className="mb-12 lg:mb-0">
-              {imageUrl && (
+              {heroImage && (
                 <div
                   className="relative overflow-hidden w-full rounded-lg shadow-lg dark:shadow-black/20"
                   style={{ width: "600px", height: "600px" }}
