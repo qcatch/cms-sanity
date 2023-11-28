@@ -113,7 +113,6 @@ export default function Footer(props: FooterProps) {
       <div className="w-full bg-neutral-200 p-4 text-center text-neutral-700 dark:bg-neutral-700 dark:text-neutral-200">
         {footer && (
           <CustomPortableText
-            paragraphClasses="text-md md:text-xl"
             value={footer}
           />
         )}

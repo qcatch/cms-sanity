@@ -28,7 +28,11 @@ export function Page({ data }: PageProps) {
           case "page-text-image":
             return <TextImage key={item._key} {...item} />;
           case "page-rich-text":
-            return <CustomPortableText key={item._key} {...item} />;
+            return (
+              <div className="bg-neutral-50 px-6 py-12 text-center md:px-12 lg:text-left my-10">
+                <CustomPortableText key={item._key} value={item.content}  />
+              </div>
+            );
 
           default:
             return null;

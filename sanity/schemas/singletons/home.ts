@@ -20,7 +20,12 @@ export default defineType({
       title: "Content",
       description:
         "This is where you can write the page's content. Including custom blocks like timelines for more a more visual display of information.",
-      of: [defineArrayMember({ name: "home-hero", type: "homeHero" })],
+      of: [
+        defineArrayMember({ name: "home-hero", type: "homeHero" }),
+        defineArrayMember({ name: "page-text-image", type: "textImage" }),
+        defineArrayMember({ name: "page-card-block", type: "cardPriceBlock" }),
+        defineArrayMember({ name: "page-rich-text", type: "richText" }),
+      ],
       validation: (rule) => rule.min(1).required(),
     }),
   ],

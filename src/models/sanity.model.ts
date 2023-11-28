@@ -19,7 +19,7 @@ export interface ShowcaseProject {
 
 export interface HomePagePayload {
   title?: string;
-  body: HomeHeroBlock[];
+  body: any[];
 }
 
 export interface HomeHeroBlock {
