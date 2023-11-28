@@ -19,20 +19,16 @@ const PriceCard: React.FC<PriceCardProps> = ({
   return (
     <div className="overflow-hidden bg-white rounded-md shadow">
       <div className="px-8 py-12">
-        <div className="relative w-24 h-24 mx-auto">
+        <div className="relative w-24 h-24 mx-auto  overflow-hidden">
           {image && (
-            <div
-              className="relative overflow-hidden w-full rounded-lg shadow-lg dark:shadow-black/20"
-              style={{ width: "600px", height: "600px" }}
-            >
-              <ImageBox
-                image={image}
-                alt={"Cover image"}
-                size="10vw"
-                width={600}
-                height={600}
-              />
-            </div>
+            <ImageBox
+              image={image}
+              alt={"Cover image"}
+              size="10vw"
+              width={600}
+              height={600}
+              classesWrapper={`relative object-cover w-24 h-24 mx-auto rounded-full`}
+            />
           )}
           <div className="absolute top-0 right-0 flex items-center justify-center bg-blue-600 rounded-full w-7 h-7">
             <svg
