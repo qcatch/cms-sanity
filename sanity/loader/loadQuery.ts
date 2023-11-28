@@ -2,26 +2,26 @@ import "server-only";
 
 import { draftMode } from "next/headers";
 
-import { queryStore } from "./createQueryStore";
-
-import {
-  HomePagePayload,
-  PagePayload,
-  SettingsPayload,
-} from "@/models/sanity.model";
 import { client } from "@/sanity/lib/client";
-import { token } from "@/sanity/lib/token";
 import {
   homePageQuery,
   pagesBySlugQuery,
   settingsQuery,
 } from "@/sanity/lib/queries";
+import { token } from "@/sanity/lib/token";
+
+import { queryStore } from "./createQueryStore";
+import {
+  HomePagePayload,
+  PagePayload,
+  SettingsPayload,
+} from "@/models/sanity.model";
 
 const serverClient = client.withConfig({
   token,
   stega: {
     // Enable stega if it's a Vercel preview deployment, as the Vercel Toolbar has controls that shows overlays
-    enabled: process.env.VERCEL_ENV !== "production",
+    enabled: process.env.VERCEL_ENV === "preview",
   },
 });
 
@@ -49,6 +49,8 @@ export const loadQuery = ((query, params = {}, options = {}) => {
     cache,
     ...options,
     perspective,
+    // @TODO add support in `@sanity/client/stega` for the below
+    // stega: {enabled: draftMode().isEnabled}
   });
 }) satisfies typeof queryStore.loadQuery;
 

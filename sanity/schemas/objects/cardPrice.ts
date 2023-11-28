@@ -4,33 +4,27 @@ import { ImageIcon } from "@sanity/icons";
 export default defineField({
   type: "object",
   name: "cardPrice",
-  title: "Pricing Card",
+  title: "Card",
   fields: [
     defineField({
-      title: "Title",
-      name: "title",
+      title: "Name",
+      name: "name",
       type: "string",
     }),
     defineField({
-      title: "Price",
-      name: "price",
+      title: "Image",
+      name: "image",
+      type: "image",
+    }),
+    defineField({
+      title: "Quote",
+      name: "quote",
       type: "string",
     }),
     defineField({
-      title: "Term",
-      name: "term",
+      title: "Job",
+      name: "job",
       type: "string",
-    }),
-    defineField({
-      title: "Button",
-      name: "link",
-      type: "button",
-    }),
-    defineField({
-      title: "Options",
-      name: "options",
-      type: "array",
-      of: [{ type: "string" }],
     }),
   ],
 });

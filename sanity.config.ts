@@ -3,7 +3,7 @@
  */
 
 import { visionTool } from "@sanity/vision";
-import { defineConfig } from "sanity";
+import { defineConfig, isDev } from "sanity";
 import { deskTool } from "sanity/desk";
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
@@ -24,11 +24,18 @@ import { initialValueTemplates } from "@/sanity/plugins/initialValueTemplates";
 import { presentationTool } from "@sanity/presentation";
 import { debugSecrets } from "@sanity/preview-url-secret/sanity-plugin-debug-secrets";
 import { locate } from "@/sanity/plugins/locate";
-import { apiVersion, dataset, projectId } from "@/sanity/lib/api";
+import { dataset, projectId } from "@/sanity/lib/api";
 import richText from "@/sanity/schemas/objects/richText";
+import { defaultDocumentNode } from "@/sanity/plugins/views";
 
 const SANITY_STUDIO_PREVIEW_URL =
   process.env.NEXT_PUBLIC_SANITY_STUDIO_PREVIEW_URL || "http://localhost:3000";
+
+const baseUrl = process.env.VERCEL_URL
+  ? // Vercel auto-populates this environment variable
+    `https://${process.env.VERCEL_URL}`
+  : // Netlify auto-populates this environment variable
+    process.env.URL || "";
 
 export default defineConfig({
   basePath: "/studio",
@@ -53,26 +60,27 @@ export default defineConfig({
       homeHero,
       richText,
     ],
-    templates: (prev) => initialValueTemplates(prev),
+    // templates: (prev) => initialValueTemplates(prev),
   },
   plugins: [
-    deskTool({ structure }),
-    // Vision is a tool that lets you query your content with GROQ in the studio
-    // https://www.sanity.io/docs/the-vision-plugin
+    deskTool({
+      structure,
+      defaultDocumentNode,
+    }),
     presentationTool({
       locate,
       previewUrl: {
-        origin:
-          typeof location === "undefined"
-            ? "http://localhost:3000"
-            : location.origin,
+        origin: typeof location === "undefined" ? baseUrl : location.origin,
         draftMode: {
           enable: "/api/draft",
         },
       },
     }),
-    visionTool({ defaultApiVersion: apiVersion }),
+    // Vision is a tool that lets you query your content with GROQ in the studio
+    // https://www.sanity.io/docs/the-vision-plugin
+    ...(isDev ? [visionTool()] : []),
+
     // Makes the url secrets visible in the Sanity Studio like any other documents defined in your schema
     debugSecrets(),
-  ],
+  ]
 });

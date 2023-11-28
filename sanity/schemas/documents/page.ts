@@ -39,13 +39,13 @@ export default defineType({
   ],
   preview: {
     select: {
-      title: "title",
+      title: 'title',
     },
     prepare({ title }) {
       return {
-        subtitle: "Pages",
+        subtitle: 'Page',
         title,
-      };
+      }
     },
   },
 });

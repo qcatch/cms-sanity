@@ -3,7 +3,7 @@ Document ids which:
 - cannot be created in the 'new document' menu
 - cannot be duplicated, unpublished or deleted
 */
-const LOCKED_DOCUMENT_IDS = ["settings", "home", "page"];
+const LOCKED_DOCUMENT_IDS = ["settings", "home"];
 
 /*
 Return all templates except the locked documents

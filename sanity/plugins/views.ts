@@ -5,6 +5,7 @@ import {
 } from "sanity/desk";
 import { Iframe } from "sanity-plugin-iframe-pane";
 import { SanityDocument } from "sanity";
+import { apiVersion } from "@/sanity/lib/api";
 
 /*
 list of schema types supporting preview
@@ -60,7 +61,7 @@ export const resolveProductionUrl = async ({
   }
 
   if (previewSchemaTypes.includes(doc._type)) {
-    const client = await getClient({ apiVersion: "2022-05-04" });
+    const client = await getClient({ apiVersion });
     const slug = await client.fetch(`*[_id == $id][0].slug.current`, {
       id: doc._id,
     });

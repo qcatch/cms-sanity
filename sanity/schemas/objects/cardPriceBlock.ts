@@ -3,7 +3,7 @@ import { defineField } from "sanity";
 export default defineField({
   type: "object",
   name: "cardPriceBlock",
-  title: "Pricing",
+  title: "Card Block",
   fields: [
     defineField({
       title: "Title",
@@ -11,8 +11,13 @@ export default defineField({
       type: "string",
     }),
     defineField({
+      title: "Price",
+      name: "price",
+      type: "string",
+    }),
+    defineField({
       validation: (rule) => rule.max(3),
-      title: "Prices",
+      title: "Cards",
       name: "cards",
       type: "array",
       of: [{ type: "cardPrice" }],

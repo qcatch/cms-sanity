@@ -13,8 +13,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const isStudioRoute = false; // = router.pathname.startsWith("/studio");
-
   return (
     <html lang="en">
       <body className={inter.className}>{children}</body>
