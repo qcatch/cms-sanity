@@ -25,7 +25,6 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
             // @ts-ignore
             return <HomeHero key={item._key} {...item} />;
           case "page-rich-text":
-            console.log(item);
             return (
               <div className="container mx-auto bg-neutral-50 px-6 py-12 text-center md:px-12 lg:text-left my-10">
                 <CustomPortableText key={item._key} value={item.content} />
