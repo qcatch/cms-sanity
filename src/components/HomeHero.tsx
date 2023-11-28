@@ -9,7 +9,7 @@ const HomeHero: React.FC<HomeHeroBlock> = ({ title, buttons, heroImage }) => {
 
   return (
     <section className="mb-10">
-      <div className="bg-neutral-50 px-6 py-12 text-center dark:bg-neutral-900 md:px-12 lg:text-left">
+      <div className="bg-neutral-50 px-6 py-12 text-center md:px-12 lg:text-left">
         <div className="w-100 mx-auto sm:max-w-2xl md:max-w-3xl lg:max-w-5xl xl:max-w-7xl">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div className="mt-12 lg:mt-0">
