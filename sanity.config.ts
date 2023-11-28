@@ -27,9 +27,7 @@ import { locate } from "@/sanity/plugins/locate";
 import { dataset, projectId } from "@/sanity/lib/api";
 import richText from "@/sanity/schemas/objects/richText";
 import { defaultDocumentNode } from "@/sanity/plugins/views";
-
-const SANITY_STUDIO_PREVIEW_URL =
-  process.env.NEXT_PUBLIC_SANITY_STUDIO_PREVIEW_URL || "http://localhost:3000";
+import {media} from "sanity-plugin-media";
 
 const baseUrl = process.env.VERCEL_URL
   ? // Vercel auto-populates this environment variable
@@ -76,6 +74,7 @@ export default defineConfig({
         },
       },
     }),
+    media(),
     // Vision is a tool that lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     ...(isDev ? [visionTool()] : []),
