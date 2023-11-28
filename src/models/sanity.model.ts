@@ -34,9 +34,7 @@ export interface Button {
   _key: string;
   _type?: string;
   label?: string;
-  link?: {
-    _ref?: string;
-  };
+  link?: string;
 }
 
 export interface PagePayload {

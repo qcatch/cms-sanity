@@ -55,6 +55,7 @@ export const resolveProductionUrl = async ({
   const { getClient } = context;
 
   if (!doc) {
+    // @ts-ignore
     doc = context.document;
   }
 
