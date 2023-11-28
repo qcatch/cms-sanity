@@ -26,6 +26,10 @@ import { locate } from "@/sanity/plugins/locate";
 import { dataset, projectId } from "@/sanity/lib/api";
 import richText from "@/sanity/schemas/objects/richText";
 import { defaultDocumentNode } from "@/sanity/plugins/views";
+import { media } from "sanity-plugin-media";
+import { scheduledPublishing } from "@sanity/scheduled-publishing";
+import { dashboardTool } from "@sanity/dashboard";
+import { netlifyWidget } from "sanity-plugin-dashboard-widget-netlify";
 
 const baseUrl = process.env.VERCEL_URL
   ? // Vercel auto-populates this environment variable
@@ -72,11 +76,29 @@ export default defineConfig({
         },
       },
     }),
+    media(),
+    scheduledPublishing(),
+    dashboardTool({
+      widgets: [
+        netlifyWidget({
+          title: "My Netlify deploys",
+          sites: [
+            {
+              title: "Sanity Website",
+              apiId: process.env.SANITY_STUDIO_API_ID as string,
+              buildHookId: process.env.SANITY_STUDIO_BUILD_HOOK_ID as string,
+              name: "catch-sanity",
+              url: "https://catch-sanity.netlify.app/",
+            },
+          ],
+        }),
+      ],
+    }),
     // Vision is a tool that lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     ...(isDev ? [visionTool()] : []),
 
     // Makes the url secrets visible in the Sanity Studio like any other documents defined in your schema
     debugSecrets(),
-  ]
+  ],
 });

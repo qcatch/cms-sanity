@@ -12,11 +12,13 @@
   },
   "dependencies": {
     "@portabletext/react": "3.0.11",
+    "@sanity/dashboard": "^3.1.5",
     "@sanity/demo": "^1.0.2",
     "@sanity/image-url": "^1.0.2",
     "@sanity/overlays": "^2.0.3",
     "@sanity/preview-url-secret": "^1.2.0",
     "@sanity/react-loader": "1.1.1",
+    "@sanity/scheduled-publishing": "^1.2.2",
     "@sanity/vision": "3.20.1",
     "next": "^14.0.3",
     "next-sanity": "6.1.0",
@@ -24,9 +26,10 @@
     "react-dom": "^18.2.0",
     "rxjs": "^7.8.1",
     "sanity": "^3.20.1",
+    "sanity-plugin-dashboard-widget-netlify": "^2.0.1",
     "sanity-plugin-iframe-pane": "^3.1.1",
-    "server-only": "^0.0.1",
-    "styled-components": "6.1.1"
+    "sanity-plugin-media": "^2.2.4",
+    "server-only": "^0.0.1"
   },
   "devDependencies": {
     "@types/node": "^20",
