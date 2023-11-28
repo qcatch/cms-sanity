@@ -24,7 +24,11 @@ import richText from "@/sanity/schemas/objects/richText";
 import { defaultDocumentNode } from "@/sanity/plugins/views";
 import { media } from "sanity-plugin-media";
 import { scheduledPublishing } from "@sanity/scheduled-publishing";
-import { dashboardTool } from "@sanity/dashboard";
+import {
+  dashboardTool,
+  projectInfoWidget,
+  projectUsersWidget,
+} from "@sanity/dashboard";
 import { netlifyWidget } from "sanity-plugin-dashboard-widget-netlify";
 import { initialValueTemplates } from "@/sanity/plugins/initialValueTemplates";
 
@@ -77,8 +81,10 @@ export default defineConfig({
     scheduledPublishing(),
     dashboardTool({
       widgets: [
+        projectInfoWidget(),
+        projectUsersWidget(),
         netlifyWidget({
-          title: "My Netlify deploys",
+          title: "Deployment",
           sites: [
             {
               title: "Sanity Website",
@@ -91,11 +97,14 @@ export default defineConfig({
         }),
       ],
     }),
-    // Vision is a tool that lets you query your content with GROQ in the studio
-    // https://www.sanity.io/docs/the-vision-plugin
-    ...(isDev ? [visionTool()] : []),
-
-    // Makes the url secrets visible in the Sanity Studio like any other documents defined in your schema
-    debugSecrets(),
+    ...(isDev
+      ? [
+          // Vision is a tool that lets you query your content with GROQ in the studio
+          // https://www.sanity.io/docs/the-vision-plugin
+          visionTool(),
+          // Makes the url secrets visible in the Sanity Studio like any other documents defined in your schema
+          debugSecrets(),
+        ]
+      : []),
   ],
 });
