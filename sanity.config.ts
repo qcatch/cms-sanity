@@ -91,7 +91,6 @@ export default defineConfig({
               apiId: process.env.SANITY_STUDIO_API_ID as string,
               buildHookId: process.env.SANITY_STUDIO_BUILD_HOOK_ID as string,
               name: "catch-sanity",
-              url: "https://catch-sanity.netlify.app/",
             },
           ],
         }),

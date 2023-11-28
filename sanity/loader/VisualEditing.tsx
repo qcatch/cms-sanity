@@ -11,9 +11,15 @@ import { useLiveMode } from "./useQuery";
 // Always enable stega in Live Mode
 const stegaClient = client.withConfig({ stega: true });
 
+const baseUrl = process.env.VERCEL_URL
+  ? // Vercel auto-populates this environment variable
+    `https://${process.env.VERCEL_URL}`
+  : // Netlify auto-populates this environment variable
+    process.env.URL || "";
+
 // Only allow same-origin Studios to connect
 const allowStudioOrigin =
-  typeof location === "undefined" ? "http://localhost:3000" : location.origin;
+  typeof location === "undefined" ? baseUrl : location.origin;
 
 export default function VisualEditing() {
   const router = useRouter();
