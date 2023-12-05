@@ -59,7 +59,7 @@ export default function Footer(props: FooterProps) {
 
   const footerLinks = [
     {
-      title: "Links",
+      title: "Link Group 1",
       links: [
         { href: "#!", text: "Link 1" },
         { href: "#!", text: "Link 2" },
@@ -68,7 +68,7 @@ export default function Footer(props: FooterProps) {
       ],
     },
     {
-      title: "Links",
+      title: "Link Group 2",
       links: [
         { href: "#!", text: "Link 1" },
         { href: "#!", text: "Link 2" },
@@ -79,7 +79,7 @@ export default function Footer(props: FooterProps) {
   return (
     <footer className="flex flex-col items-center bg-neutral-100 text-center dark:bg-neutral-600 lg:text-left">
       <div className="container p-6">
-        <div className="grid place-items-center md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid place-items-top md:grid-cols-2 lg:grid-cols-4">
           {footerLinks.map((footerLink, index) => (
             <Links
               title={footerLink.title}
