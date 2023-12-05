@@ -72,26 +72,6 @@ export default function Footer(props: FooterProps) {
       links: [
         { href: "#!", text: "Link 1" },
         { href: "#!", text: "Link 2" },
-        { href: "#!", text: "Link 3" },
-        { href: "#!", text: "Link 4" },
-      ],
-    },
-    {
-      title: "Links",
-      links: [
-        { href: "#!", text: "Link 1" },
-        { href: "#!", text: "Link 2" },
-        { href: "#!", text: "Link 3" },
-        { href: "#!", text: "Link 4" },
-      ],
-    },
-    {
-      title: "Links",
-      links: [
-        { href: "#!", text: "Link 1" },
-        { href: "#!", text: "Link 2" },
-        { href: "#!", text: "Link 3" },
-        { href: "#!", text: "Link 4" },
       ],
     },
   ];
