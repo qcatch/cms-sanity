@@ -24,7 +24,6 @@ export default defineType({
         defineArrayMember({
           name: "home-hero",
           type: "homeHero",
-          validation: (rule) => rule.max(1),
         }),
         defineArrayMember({ name: "page-text-image", type: "textImage" }),
         defineArrayMember({ name: "page-card-block", type: "cardPriceBlock" }),
