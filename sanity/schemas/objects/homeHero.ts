@@ -22,7 +22,7 @@ export default defineField({
     defineField({
       validation: (rule) => rule.max(2),
       name: "buttons",
-      description: "Add buttons (max 2) to the home hero",
+      description: "Add buttons (max 2) to the hero",
       title: "Buttons",
       type: "array",
       of: [
