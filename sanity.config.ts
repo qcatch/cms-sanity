@@ -21,7 +21,6 @@ import { debugSecrets } from "@sanity/preview-url-secret/sanity-plugin-debug-sec
 import { locate } from "@/sanity/plugins/locate";
 import { dataset, projectId } from "@/sanity/lib/api";
 import richText from "@/sanity/schemas/objects/richText";
-import { defaultDocumentNode } from "@/sanity/plugins/views";
 import { media } from "sanity-plugin-media";
 import {
   dashboardTool,
@@ -65,7 +64,7 @@ export default defineConfig({
   plugins: [
     deskTool({
       structure,
-      defaultDocumentNode,
+      // defaultDocumentNode,
     }),
     presentationTool({
       locate,
