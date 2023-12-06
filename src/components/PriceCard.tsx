@@ -43,7 +43,7 @@ const PriceCard: React.FC<PriceCardProps> = ({
         </div>
         <blockquote className="mt-7">
           <p className="text-lg text-black">
-            {quote ? <>&quot;{quote}&quot;</> : "&nbsp;"}
+            {quote ? <>&quot;{quote}&quot;</> : <>&nbsp;</>}
           </p>
         </blockquote>
 
