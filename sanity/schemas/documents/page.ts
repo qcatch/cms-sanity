@@ -30,7 +30,6 @@ export default defineType({
         "This is where you can write the page's content. Including custom blocks like timelines for more a more visual display of information.",
       of: [
         defineArrayMember({ name: "page-text-image", type: "textImage" }),
-        defineArrayMember({ name: "page-faq-block", type: "faqBlock" }),
         defineArrayMember({ name: "page-card-block", type: "cardPriceBlock" }),
         defineArrayMember({ name: "page-rich-text", type: "richText" }),
       ],

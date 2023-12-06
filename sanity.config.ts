@@ -23,7 +23,6 @@ import { dataset, projectId } from "@/sanity/lib/api";
 import richText from "@/sanity/schemas/objects/richText";
 import { defaultDocumentNode } from "@/sanity/plugins/views";
 import { media } from "sanity-plugin-media";
-import { scheduledPublishing } from "@sanity/scheduled-publishing";
 import {
   dashboardTool,
   projectInfoWidget,
@@ -78,26 +77,27 @@ export default defineConfig({
       },
     }),
     media(),
-    scheduledPublishing(),
-    dashboardTool({
-      widgets: [
-        projectInfoWidget(),
-        projectUsersWidget(),
-        netlifyWidget({
-          title: "Deployment",
-          sites: [
-            {
-              title: "Sanity Website",
-              apiId: process.env.SANITY_STUDIO_API_ID as string,
-              buildHookId: process.env.SANITY_STUDIO_BUILD_HOOK_ID as string,
-              name: "catch-sanity",
-            },
-          ],
-        }),
-      ],
-    }),
+    // scheduledPublishing(),
     ...(isDev
       ? [
+          dashboardTool({
+            widgets: [
+              projectInfoWidget(),
+              projectUsersWidget(),
+              netlifyWidget({
+                title: "Deployment",
+                sites: [
+                  {
+                    title: "Sanity Website",
+                    apiId: process.env.SANITY_STUDIO_API_ID as string,
+                    buildHookId: process.env
+                      .SANITY_STUDIO_BUILD_HOOK_ID as string,
+                    name: "catch-sanity",
+                  },
+                ],
+              }),
+            ],
+          }),
           // Vision is a tool that lets you query your content with GROQ in the studio
           // https://www.sanity.io/docs/the-vision-plugin
           visionTool(),
