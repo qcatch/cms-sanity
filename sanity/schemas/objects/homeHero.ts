@@ -1,10 +1,9 @@
-import { defineArrayMember, defineField } from "sanity";
-import { ImageIcon } from "@sanity/icons";
+import { defineField } from "sanity";
 
 export default defineField({
   type: "object",
   name: "homeHero",
-  title: "Home Hero",
+  title: "Hero",
   fields: [
     defineField({
       name: "title",
