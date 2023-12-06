@@ -11,11 +11,6 @@ export default defineField({
       type: "string",
     }),
     defineField({
-      title: "Price",
-      name: "price",
-      type: "string",
-    }),
-    defineField({
       validation: (rule) => rule.max(3),
       title: "Cards",
       name: "cards",

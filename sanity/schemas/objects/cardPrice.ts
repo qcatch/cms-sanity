@@ -1,5 +1,4 @@
-import { defineArrayMember, defineField } from "sanity";
-import { ImageIcon } from "@sanity/icons";
+import { defineField } from "sanity";
 
 export default defineField({
   type: "object",
@@ -19,11 +18,6 @@ export default defineField({
     defineField({
       title: "Quote",
       name: "quote",
-      type: "string",
-    }),
-    defineField({
-      title: "Job",
-      name: "job",
       type: "string",
     }),
   ],

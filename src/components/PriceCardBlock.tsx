@@ -14,7 +14,7 @@ const PriceCardBlock: React.FC<CardBlockProps> = ({ title, cards, price }) => {
         {title && (
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-3xl font-bold leading-tight text-gray-800 sm:text-4xl lg:text-5xl">
-              {title} <span className="text-blue-600">{price}</span>
+              {title}
             </h2>
           </div>
         )}

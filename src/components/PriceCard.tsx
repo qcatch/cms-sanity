@@ -42,10 +42,12 @@ const PriceCard: React.FC<PriceCardProps> = ({
           </div>
         </div>
         <blockquote className="mt-7">
-          <p className="text-lg text-black">&quot;{quote}&quot;</p>
+          <p className="text-lg text-black">
+            {quote ? <>&quot;{quote}&quot;</> : "&nbsp;"}
+          </p>
         </blockquote>
+
         <p className="text-base font-semibold tex-tblack mt-9">{name}</p>
-        <p className="mt-1 text-base text-gray-600">{job} at Microsoft</p>
       </div>
     </div>
   );
